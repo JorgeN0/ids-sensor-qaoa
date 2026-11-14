@@ -48,10 +48,9 @@ Where should a defender put intrusion-detection (IDS) sensors so that every netw
 ## Status (as of Sat Nov 14, ~8 AM ET)
 - [x] Project built and verified on simulators; notebook pre-run; zip delivered
 - [x] Registered for Optimization (Beginner); GitHub account created
-- [ ] Confirm `run_on_hardware.py --fake` works on Jorge's laptop
-- [ ] `--submit` the hardware jobs (status unconfirmed); save printed job IDs
-- [ ] Create public repo `ids-sensor-qaoa` and upload files
-- [ ] `--fetch` until both jobs are DONE; re-run notebook Section 7; commit `hardware_results.json`
-- [ ] Build presentation slides from real numbers (core story: problem → one qubit per device → standard fails / CVaR fixes → hardware result; scaling and mitigation as backup slides)
+- [x] `--fake` verified on Jorge's laptop (Sat Nov 14): depth 134, 57 two-qubit gates; CVaR P(opt) 0.157 → 0.164, top answer optimal; standard 0.032, top answer cost 20. Project files extracted from the zip into this folder; deps in `.venv` (Python 3.14, pinned requirements install fine)
+- [—] **Real hardware dropped (Sat Nov 14):** IBM Quantum account signup failed ("Error on the call to BSS"). Going simulator-only, which the rules allow. README, PITCH_NOTES and notebook Section 7 were reworded so they no longer promise hardware results. Don't reintroduce hardware claims.
+- [ ] Commit the project files and push to the public repo `JorgeN0/ids-sensor-qaoa` (it currently holds only CLAUDE.md)
+- [ ] Build presentation slides from real numbers (core story: problem → one qubit per device → standard fails / CVaR fixes → survives noisy Heron model; scaling and mitigation as backup slides)
 - [ ] Walk through the notebook section by section until every part can be explained without notes; rehearse the pitch 3× with a timer
 - [ ] Sunday morning: final push; check the repo link opens in a private browser window
