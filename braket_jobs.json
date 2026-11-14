@@ -1,0 +1,37 @@
+{
+  "device": "cepheus",
+  "backend": "Cepheus-1-108Q",
+  "submitted_utc": "2026-11-14T16:49:30.619750+00:00",
+  "tasks": {
+    "qaoa_cvar": "arn:aws:braket:us-west-1:REDACTED:quantum-task/9434516a-2cc9-410c-ac5a-a65de03ae13d",
+    "qaoa_naive": "arn:aws:braket:us-west-1:REDACTED:quantum-task/3ada1840-53d1-4ee3-b32c-ab49ac23cedc",
+    "cal_all0": "arn:aws:braket:us-west-1:REDACTED:quantum-task/6d5f974b-7aa9-452e-ac33-202e4e2308df",
+    "cal_all1": "arn:aws:braket:us-west-1:REDACTED:quantum-task/2df72081-8dc0-4ff5-9e8a-7bc033377383"
+  },
+  "circuit": {
+    "measured_qubits": [
+      31,
+      22,
+      12,
+      21,
+      4,
+      13,
+      5,
+      11
+    ],
+    "depth": 135,
+    "two_qubit_gates": 45,
+    "gates": {
+      "rz": 134,
+      "sx": 66,
+      "sxdg": 46,
+      "cz": 45,
+      "x": 12,
+      "measure": 8,
+      "barrier": 1
+    }
+  },
+  "shots": 4000,
+  "cal_shots": 1000,
+  "estimated_cost_usd": 5.45
+}

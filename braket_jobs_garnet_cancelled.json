@@ -1,0 +1,34 @@
+{
+  "device": "garnet",
+  "backend": "Garnet",
+  "submitted_utc": "2026-11-14T16:47:08.892583+00:00",
+  "tasks": {
+    "qaoa_cvar": "arn:aws:braket:eu-north-1:REDACTED:quantum-task/128e729b-ffe4-4b0c-9ac4-dde9094e09ea",
+    "qaoa_naive": "arn:aws:braket:eu-north-1:REDACTED:quantum-task/508d6fdb-f81b-441d-b9ce-3f70f9bdca05",
+    "cal_all0": "arn:aws:braket:eu-north-1:REDACTED:quantum-task/4610ed68-4544-45d1-991a-cf98feb9912b",
+    "cal_all1": "arn:aws:braket:eu-north-1:REDACTED:quantum-task/9c9aaeb0-6629-4aa4-b29a-ba09731f7533"
+  },
+  "circuit": {
+    "measured_qubits": [
+      17,
+      14,
+      18,
+      19,
+      9,
+      16,
+      10,
+      15
+    ],
+    "depth": 123,
+    "two_qubit_gates": 45,
+    "gates": {
+      "r": 235,
+      "cz": 45,
+      "measure": 8,
+      "barrier": 1
+    }
+  },
+  "shots": 4000,
+  "cal_shots": 1000,
+  "estimated_cost_usd": 15.7
+}

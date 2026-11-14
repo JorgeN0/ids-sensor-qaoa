@@ -119,7 +119,8 @@ def print_table(table: dict) -> None:
     print(f"\n{'variant':<40} {'P(opt)':>7} {'x random':>9} {'P(valid)':>9} {'top answer':>11}")
     for key, row in table.items():
         if isinstance(row, dict):
-            top = "optimal" if row["most_likely_is_optimal"] else f"cost {row['most_likely_cost']:g}"
+            cost = row["most_likely_cost"]
+            top = "optimal" if row["most_likely_is_optimal"] else ("invalid" if cost == float("inf") else f"cost {cost:g}")
             print(f"{key:<40} {row['p_optimal']:7.3f} {row['x_random']:9.1f} {row['p_valid']:9.3f} {top:>11}")
     for key, val in table.items():
         if not isinstance(val, dict):
