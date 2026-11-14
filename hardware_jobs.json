@@ -1,0 +1,23 @@
+{
+  "backend": "ibm_fez",
+  "submitted_utc": "2026-11-14T22:12:13.121919+00:00",
+  "jobs": {
+    "raw": "dbsdpeok09pc73b027vg",
+    "mitigated": "dbsdpf6jjaos73ak2n70"
+  },
+  "circuit": {
+    "layout": [
+      125,
+      124,
+      123,
+      122,
+      144,
+      136,
+      143,
+      121
+    ],
+    "depth": 135,
+    "two_qubit_gates": 57
+  },
+  "shots": 4000
+}

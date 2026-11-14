@@ -14,7 +14,8 @@ Usage
     python run_on_hardware.py --fetch            # check status; when done, save + summarize results
     python run_on_hardware.py --fake             # full dry run on a simulated noisy Heron (no account needed)
 
-Your API key is read from the QISKIT_IBM_TOKEN environment variable (never put it in this file).
+Your API key is read from the QISKIT_IBM_TOKEN environment variable, or else from the apikey.json file IBM
+offers when you create a key (default ~/Downloads/apikey.json; or set QISKIT_IBM_KEY_FILE). Never put it in this repo.
 Optionally set QISKIT_IBM_INSTANCE to your instance CRN.
 """
 from __future__ import annotations
@@ -128,13 +129,25 @@ def print_table(table: dict) -> None:
 
 
 # --------------------------------------------------------------------------- modes
+def read_api_key() -> str:
+    """The API key from QISKIT_IBM_TOKEN, or else from the apikey.json file IBM offers when you create a key
+    (path in QISKIT_IBM_KEY_FILE, default ~/Downloads/apikey.json). The key is never printed or copied anywhere."""
+    token = os.environ.get("QISKIT_IBM_TOKEN")
+    if token:
+        return token
+    path = Path(os.environ.get("QISKIT_IBM_KEY_FILE", Path.home() / "Downloads" / "apikey.json")).expanduser().resolve()
+    if HERE.resolve() in path.parents:
+        sys.exit(f"Refusing to read an API key file inside this repository ({path.name}); move it outside the project folder.")
+    if not path.exists():
+        sys.exit("No API key found. Either save IBM's apikey.json to ~/Downloads (or set QISKIT_IBM_KEY_FILE to its path), "
+                 "or set the QISKIT_IBM_TOKEN environment variable.")
+    return json.loads(path.read_text())["apikey"]
+
+
 def get_service():
     from qiskit_ibm_runtime import QiskitRuntimeService
 
-    token = os.environ.get("QISKIT_IBM_TOKEN")
-    if not token:
-        sys.exit("Set the QISKIT_IBM_TOKEN environment variable to your IBM Quantum API key first.")
-    kwargs = {"channel": "ibm_quantum_platform", "token": token}
+    kwargs = {"channel": "ibm_quantum_platform", "token": read_api_key()}
     if os.environ.get("QISKIT_IBM_INSTANCE"):
         kwargs["instance"] = os.environ["QISKIT_IBM_INSTANCE"]
     return QiskitRuntimeService(**kwargs)
