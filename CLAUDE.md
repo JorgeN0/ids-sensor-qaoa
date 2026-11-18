@@ -4,6 +4,7 @@
 Jorge Naranjo's **solo** entry in the **USC × IBM Qiskit Fall Fest 2026** hackathon (about 20 participants).
 - **Track:** Quantum Optimization, **Beginner** level (Beginner and Advanced are judged separately).
 - **Schedule:** opening Fri Nov 13 · talks, mini-challenge and office hours Sat Nov 14 · **presentations and judging Sun Nov 15 (morning)**.
+- **Presentation format (Discord, Nov 14):** 5 minutes per team, then judge questions. Cover problem → method and implementation → testing/results → conclusion (is the method good for the problem, next steps). Order is alphabetical, main prompt 1 Beginner first, then Advanced, and so on. "A good explanation of ideas and concepts is highly valued."
 - **Organizer rules (info-meeting deck):** must use Qiskit and address the prompt; AI is allowed for setup *and* coding; Open Plan gives **10 minutes** of real-hardware time; simulator-only results are acceptable, but hardware "will make your submission stronger."
 - The prompt is open: "choose a problem or method to implement these methods in."
 
@@ -60,6 +61,6 @@ Where should a defender put intrusion-detection (IDS) sensors so that every netw
 - [x] **IBM hardware done (Sat Nov 14, evening):** IBM account works now. Ran on `ibm_fez`; results in "Verified results". README, PITCH_NOTES and notebook Section 7 (7a IBM, 7b Rigetti) and 8 updated to lead with IBM.
   - [ ] **Leaked-key cleanup:** the key uploaded to GitHub (created 22:05 UTC, labelled "Main Key") must be deleted on quantum.cloud.ibm.com. The local copy is `~/Downloads/apikey-LEAKED-delete-me.json`, kept only to verify revocation; delete it once IBM rejects it. The new key (created 22:24 UTC, also labelled "Main Key") is now `~/Downloads/apikey.json`. It authenticates and sees the same instance, but `service.job(...)` said "Job not found" right after creation (likely IAM propagation), so recheck.
 - [x] Project files committed and pushed to the public repo `JorgeN0/ids-sensor-qaoa`
-- [ ] Build presentation slides from real numbers (core story: problem → one qubit per device → standard fails / CVaR fixes → survives noisy simulators → real IBM `ibm_fez` with error suppression: CVaR's top two answers optimal, standard picks all 8; Rigetti without suppression: noise wins; scaling and mitigation as backup slides)
+- [x] Presentation slides built (Claude Slides artifact https://claude.ai/artifact/11eZCdqoVvpZmNdyc6kyA3, private until Jorge shares it). 13 slides in the organizers' 4 parts: problem (cover, network) → method (qubit per device, how QAOA works, pipeline) → results (standard fails, CVaR fixes, IBM, error suppression) → conclusion (is QAOA good for this? works in principle, not in practice yet; next steps); 3 backups (scaling, noise model and readout mitigation, "how I know it isn't a bug"). `PITCH_NOTES.md` has the timed 5-minute script. `DEVPOST.md` has the submission text; images are in `~/Downloads/devpost-media/`.
 - [ ] Walk through the notebook section by section until every part can be explained without notes; rehearse the pitch 3× with a timer
 - [ ] Sunday morning: final push; check the repo link opens in a private browser window
